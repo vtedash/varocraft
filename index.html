@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Bienvenida a VaroCraft</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'VT323', monospace;
+            background-color: #3B3B3B;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-repeat: repeat;
+        }
+        .minecraft-font {
+            font-family: 'Press-Start-2P', cursive;
+        }
+        .minecraft-btn {
+            background-color: #7D7D7D;
+            border: 4px solid;
+            border-color: #373737 #FFFFFF #FFFFFF #373737;
+            box-shadow: 0 0 0 2px #000000;
+            image-rendering: pixelated;
+            transition: all 0.1s ease-in-out;
+            text-decoration: none;
+        }
+        .minecraft-btn:hover {
+            background-color: #939393;
+        }
+        .minecraft-btn:active {
+            border-color: #FFFFFF #373737 #373737 #FFFFFF;
+            transform: translateY(2px);
+        }
+        .minecraft-card {
+            background-color: rgba(19, 21, 23, 0.8);
+            border: 4px solid #5A5A5A;
+            box-shadow: inset 0 0 0 4px #292929;
+        }
+        .minecraft-code {
+            background-color: #1E1E1E;
+            border: 2px solid #3c3c3c;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body class="text-gray-200 text-2xl p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="minecraft-font text-4xl md:text-5xl text-white drop-shadow-[4px_4px_0_#2E2E2E]">📜 VaroCraft 📜</h1>
+            <p class="text-green-400 mt-2 text-3xl">Panel de Bienvenida</p>
+        </header>
+
+        <!-- Action Required Box -->
+        <div class="border-4 border-yellow-500 bg-yellow-900/50 p-6 mb-8 shadow-lg text-yellow-200">
+            <h2 class="minecraft-font text-3xl text-yellow-300 flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16"><path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>
+                ¡ACCIÓN REQUERIDA!
+            </h2>
+            <p class="mt-4">Antes de continuar, necesitas tu <strong class="text-white">IP Pública</strong>. Búscala en Google ("what is my ip") y reemplaza la IP de ejemplo <code class="bg-black px-2 py-1 rounded-md text-white">123.45.67.89</code> en el panel con ella.</p>
+        </div>
+
+        <main class="space-y-8">
+            <!-- Welcome & Status -->
+            <div class="minecraft-card p-6 text-center">
+                <p class="text-3xl mb-4">¡Hola, Crafteador! 👋 Has sido invitado a unirte a nuestro mundo.</p>
+                <div class="inline-flex items-center gap-3 bg-green-900/60 border-2 border-green-500 px-6 py-2">
+                    <span class="relative flex h-4 w-4">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-4 w-4 bg-green-500"></span>
+                    </span>
+                    <span class="minecraft-font text-2xl text-green-300">Estado del Servidor: ¡En línea!</span>
+                </div>
+            </div>
+
+            <!-- Connection Instructions -->
+            <div>
+                <h2 class="minecraft-font text-4xl text-center mb-6 text-white drop-shadow-[3px_3px_0_#2E2E2E]">💻 ¿Cómo Conectarse? 🎮</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Java Edition -->
+                    <div class="minecraft-card p-6">
+                        <h3 class="minecraft-font text-3xl text-cyan-300 mb-4">☕ Java Edition (PC/Mac)</h3>
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li>En el menú principal, ve a <strong class="text-white">Multijugador</strong>.</li>
+                            <li>Haz clic en <strong class="text-white">Añadir Servidor</strong>.</li>
+                            <li>Rellena los datos:</li>
+                        </ol>
+                        <div class="mt-4 space-y-4">
+                            <div>
+                                <label class="block mb-1 text-gray-400">Nombre del Servidor:</label>
+                                <div class="minecraft-code p-3 text-white">¡El que tú quieras! (ej: VaroCraft)</div>
+                            </div>
+                            <div>
+                                <label class="block mb-1 text-gray-400">Dirección del Servidor:</label>
+                                <div class="minecraft-code p-3 flex justify-between items-center">
+                                    <span class="text-yellow-300 font-bold">123.45.67.89</span>
+                                    <button onclick="copyToClipboard('123.45.67.89', this)" class="minecraft-btn text-white px-3 py-1 text-lg">COPIAR</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block mb-1 text-gray-400">Puerto (por defecto):</label>
+                                <div class="minecraft-code p-3 flex justify-between items-center">
+                                    <span class="text-white">25565</span>
+                                    <button onclick="copyToClipboard('25565', this)" class="minecraft-btn text-white px-3 py-1 text-lg">COPIAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bedrock Edition -->
+                    <div class="minecraft-card p-6">
+                        <h3 class="minecraft-font text-3xl text-green-300 mb-4">🧱 Bedrock Edition (Consola/Móvil)</h3>
+                        <ol class="list-decimal list-inside space-y-3">
+                            <li>Ve a <strong class="text-white">Jugar</strong> &gt; <strong class="text-white">Servidores</strong>.</li>
+                            <li>Baja y haz clic en <strong class="text-white">Añadir Servidor</strong>.</li>
+                            <li>Rellena los datos:</li>
+                        </ol>
+                        <div class="mt-4 space-y-4">
+                             <div>
+                                <label class="block mb-1 text-gray-400">Nombre del Servidor:</label>
+                                <div class="minecraft-code p-3 text-white">¡El que tú quieras! (ej: VaroCraft)</div>
+                            </div>
+                            <div>
+                                <label class="block mb-1 text-gray-400">Dirección del Servidor:</label>
+                                <div class="minecraft-code p-3 flex justify-between items-center">
+                                    <span class="text-yellow-300 font-bold">123.45.67.89</span>
+                                    <button onclick="copyToClipboard('123.45.67.89', this)" class="minecraft-btn text-white px-3 py-1 text-lg">COPIAR</button>
+                                </div>
+                            </div>
+                             <div>
+                                <label class="block mb-1 text-gray-400">Puerto:</label>
+                                <div class="minecraft-code p-3 flex justify-between items-center">
+                                    <span class="text-white">19132</span>
+                                    <button onclick="copyToClipboard('19132', this)" class="minecraft-btn text-white px-3 py-1 text-lg">COPIAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Survival Guide -->
+             <div>
+                <h2 class="minecraft-font text-4xl text-center mb-6 text-white drop-shadow-[3px_3px_0_#2E2E2E]">🛡️ Guía Rápida 🛡️</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="minecraft-card p-6 flex flex-col justify-between">
+                        <div>
+                           <h3 class="minecraft-font text-2xl text-yellow-300 mb-3">Whitelist 📝</h3>
+                           <p>Para poder entrar, debes estar en la lista. ¡Envía tu ID de usuario en nuestro formulario para que te añadamos!</p>
+                        </div>
+                        <!-- IMPORTANTE: Reemplaza el enlace de abajo con el de tu Google Form -->
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform" target="_blank" rel="noopener noreferrer" class="minecraft-btn inline-block text-white px-4 py-2 text-xl mt-4">
+                            Enviar mi ID
+                        </a>
+                    </div>
+                     <div class="minecraft-card p-6">
+                        <h3 class="minecraft-font text-2xl text-blue-300 mb-3">Protege tu Casa 🏡</h3>
+                        <p class="text-xl">
+                            A medida que juegas en el servidor, <strong class="text-white">ganas bloques de protección automáticamente</strong>. ¡Cuanto más juegues, más terreno podrás proteger!
+                            <br><br>
+                            Para usar tus bloques, coge una <strong class="text-white">Pala de Oro</strong>, haz clic derecho en una esquina de tu terreno y luego en la esquina opuesta. ¡Tu zona quedará protegida!
+                        </p>
+                    </div>
+                     <div class="minecraft-card p-6">
+                        <h3 class="minecraft-font text-2xl text-green-300 mb-3">Juega en Equipo 🤝</h3>
+                        <p>Para dar permisos a un amigo en tu zona, escribe: <code class="bg-black p-1 rounded-md text-white">/trust &lt;nombre&gt;</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="minecraft-card p-6 flex items-center gap-6">
+                 <div class="text-5xl">🆘</div>
+                 <div>
+                    <h2 class="minecraft-font text-3xl text-red-400 mb-2">¿Problemas para Conectar?</h2>
+                    <p>Si has seguido los pasos y no funciona, no te preocupes. Lo más común es un error en la IP o que aún no estés en la whitelist. ¡Avísame y lo solucionamos!</p>
+                    <p class="mt-4 text-gray-400">- Tu admin, Varo</p>
+                 </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function copyToClipboard(text, buttonElement) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const originalText = buttonElement.textContent;
+                buttonElement.textContent = '¡COPIADO!';
+                buttonElement.style.backgroundColor = '#4CAF50';
+                setTimeout(() => {
+                    buttonElement.textContent = originalText;
+                    buttonElement.style.backgroundColor = '#7D7D7D';
+                }, 2000);
+            } catch (err) {
+                console.error('Error al copiar texto: ', err);
+                const originalText = buttonElement.textContent;
+                buttonElement.textContent = 'ERROR';
+                 setTimeout(() => {
+                    buttonElement.textContent = originalText;
+                }, 2000);
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
+
